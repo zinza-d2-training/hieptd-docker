@@ -1,0 +1,240 @@
+@mixin button {
+   display: inline-block;
+   margin: 0 10px;
+   font-weight: 400;
+   text-align: center;
+   white-space: nowrap;
+   vertical-align: middle;
+   color: $white;
+   touch-action: manipulation;
+   cursor: pointer;
+   background-image: none;
+   background-color: $active-primary;
+   border: 1px solid transparent;
+   padding: 6px 10px;
+   font-size: 14px;
+   line-height: 1.42857143;
+   border-radius: 4px;
+   min-width: 80px;
+   &[type='submit']:disabled {
+      cursor: default;
+      background-color: $error;
+   }
+}
+@mixin input {
+   display: block;
+   min-height: 45px;
+   min-width: 200px;
+   padding: 6px 15px;
+   font-size: 14px;
+   line-height: 1.4;
+   color: $text;
+   background-color: $input-background;
+   background-image: none;
+   border: none;
+   border-radius: 4px;
+   outline: none;
+   &:focus::placeholder {
+      color: transparent;
+   }
+   &::placeholder {
+      color: $text;
+      transition: color 0.3s ease;
+   }
+}
+@mixin select {
+   padding: 6px 15px;
+   min-height: 45px;
+   border: 1px solid #dddd;
+   color: #333;
+   background-color: $input-background;
+   font-size: 16px;
+   cursor: pointer;
+   border-radius: 5px;
+   outline: none;
+   text-transform: capitalize;
+   & option {
+      background-color: #ffff;
+   }
+}
+
+@mixin table {
+   table {
+      margin-bottom: 6px;
+      max-width: none;
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #dee2e6;
+      width: 100%;
+      background-color: $white;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      thead {
+         display: table-header-group;
+         vertical-align: middle;
+         border-color: inherit;
+
+         tr {
+            display: table-row;
+            vertical-align: inherit;
+            border-color: inherit;
+            background-color: $input-background;
+            th {
+               text-align: left;
+               padding: 10px;
+               font-weight: 700;
+               &.th-name {
+                  min-width: 100px;
+               }
+               &.th-description {
+                  min-width: 120px;
+                  word-break: break-word;
+               }
+               &.th-checkbox {
+                  width: 20px;
+                  input {
+                     cursor: pointer;
+                  }
+               }
+            }
+         }
+      }
+      tbody {
+         display: table-row-group;
+         vertical-align: middle;
+         border-color: inherit;
+         tr {
+            display: table-row;
+            vertical-align: inherit;
+            border-color: inherit;
+            transition: 0.2s ease;
+            &:hover {
+               background-color: $light;
+            }
+            &.err {
+               background-color: $error;
+            }
+            td {
+               border: 1px solid #eff0f6;
+               border-bottom-width: 0px;
+               border-right-width: 0px;
+               border-left-width: 0px;
+               padding: 10px;
+               width: 100px;
+               position: relative;
+
+               &.td-description {
+                  max-width: 250px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+               }
+               &.td-date {
+                  min-width: 100px;
+               }
+               &.td-name {
+                  max-width: 180px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+               }
+               &.td-role {
+                  text-transform: capitalize;
+               }
+
+               &.td-checkbox {
+                  width: 20px;
+                  input {
+                     cursor: pointer;
+                  }
+               }
+
+               a {
+                  text-decoration: none;
+                  padding: 4px 5px;
+                  color: $text;
+                  border-radius: 4px;
+                  font-size: 16px;
+
+                  & + a {
+                     margin-left: 2px;
+                  }
+
+                  &:hover {
+                     background-color: $success;
+                     color: $white;
+                  }
+               }
+               a.edit--link {
+                  padding: 0;
+                  border-radius: 0;
+                  background-color: transparent;
+               }
+               div {
+                  padding: 10px 0 10px 10px;
+                  border-radius: 5px;
+                  color: $white;
+                  width: 90px;
+               }
+               select.active,
+               select.inactive,
+               select.Pending,
+               select.InProgress,
+               select.Completed,
+               select.Cancelled {
+                  color: $white;
+                  appearance: none;
+
+                  option {
+                     color: $text;
+                     border: none;
+                  }
+                  &:hover {
+                     background-color: $primary;
+                  }
+               }
+               select.inactive,
+               select.Pending,
+               div.Pending {
+                  background-color: $warning;
+               }
+
+               select.active,
+               select.Completed,
+               div.Completed,
+               div.active {
+                  background-color: $success;
+               }
+               select.Cancelled,
+               div.Cancelled {
+                  background-color: $error;
+               }
+               select.InProgress,
+               div.InProgress {
+                  background-color: #5d5fef;
+               }
+               i {
+                  cursor: pointer;
+               }
+               i.fa-exclamation-circle {
+                  color: $info;
+                  position: absolute;
+                  right: 10px;
+                  bottom: 10px;
+               }
+               i.fa-trash-alt {
+                  color: #f26464;
+                  margin: 0 5px;
+               }
+               i.fa-edit {
+                  color: #46546c;
+               }
+            }
+         }
+      }
+   }
+}
+@media (max-width: 768px) {
+   table {
+      font-size: 14px;
+   }
+}

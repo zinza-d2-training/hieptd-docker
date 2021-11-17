@@ -1,0 +1,77 @@
+@import 'styles/variables';
+.filter__header {
+   margin-top: 20px;
+   height: 125px;
+   padding: 15px;
+   background-color: $white;
+   border-radius: 4px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   a,
+   button {
+      margin: 0;
+      background-color: #46546c;
+      color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+   }
+   .filter__header-left {
+      display: flex;
+      align-items: center;
+
+      input,
+      select,
+      button {
+         margin-left: 16px;
+      }
+   }
+   .filter__header-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      button {
+         margin-left: 16px;
+         display: flex;
+         align-items: baseline;
+         svg {
+            margin-right: 5px;
+         }
+      }
+
+      a {
+         min-width: 80px;
+         padding: 6px 10px;
+         font-weight: 400;
+         border: 1px solid transparent;
+         font-size: 14px;
+         line-height: 1.42857143;
+         border-radius: 4px;
+      }
+   }
+}
+@media screen and (max-width: 1242px) and (min-width: 841px) {
+   .filter__header {
+      display: block;
+      .filter__header-right {
+         margin-top: 18px;
+      }
+   }
+}
+@media screen and (max-width: 840px) {
+   .filter__header {
+      height: auto;
+      display: block;
+      .filter__header-left {
+         flex-wrap: wrap;
+         justify-content: flex-start;
+         button,
+         input,
+         select {
+            margin-top: 10px;
+         }
+      }
+   }
+}

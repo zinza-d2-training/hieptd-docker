@@ -1,0 +1,51 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+.exportUser {
+   .exportUser__container {
+      margin-top: 20px;
+      .exportUser__table {
+         overflow: auto;
+         overflow-y: auto;
+         overflow-x: auto;
+         max-height: 400px;
+         @include table;
+         table {
+            box-shadow: none;
+            font-size: 14px;
+            tbody,
+            thead {
+               tr {
+                  th {
+                     text-transform: capitalize;
+                     padding: 2px 5px;
+                  }
+                  td {
+                     text-align: start;
+                     padding: 2px 5px;
+                  }
+               }
+            }
+         }
+         .exportUser__info {
+            text-align: start;
+            font-weight: 600;
+            font-size: 18px;
+            color: $primary;
+            padding: 10px 0;
+         }
+      }
+      .exportUser__btn {
+         display: flex;
+         align-items: center;
+         justify-content: flex-end;
+         margin-top: 10px;
+         button {
+            display: flex;
+            align-items: baseline;
+            svg {
+               margin-right: 5px;
+            }
+         }
+      }
+   }
+}

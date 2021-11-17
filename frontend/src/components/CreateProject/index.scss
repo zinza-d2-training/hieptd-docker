@@ -1,0 +1,63 @@
+@import 'styles/variables';
+.createproject {
+   background: $background;
+   box-shadow: $box-shadow;
+   padding: 20px;
+   form {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 20px;
+      .createproject__item {
+         width: calc(100% / 2 - 10px);
+         margin-top: 30px;
+
+         textarea {
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #333;
+         }
+
+         label {
+            display: flex;
+            padding: 10px 0;
+            font-weight: 600;
+            &.required::after {
+               content: '*';
+               color: red;
+            }
+         }
+         .createproject__item-wrap {
+            .createproject__errr {
+               color: $error;
+               padding: 5px;
+               font-size: 13px;
+            }
+         }
+      }
+      .createproject__item {
+         input {
+            width: 300px;
+         }
+      }
+   }
+   .createproject__members {
+      padding: 0 20px;
+      flex: 0 100%;
+   }
+   .createproject__btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 20px 0;
+      flex: 0 100%;
+   }
+}
+@media (max-width: 730px) {
+   .createproject {
+      form {
+         .createproject__item {
+            width: 100%;
+         }
+      }
+   }
+}

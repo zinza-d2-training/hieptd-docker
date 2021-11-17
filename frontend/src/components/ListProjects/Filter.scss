@@ -1,0 +1,67 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+.projectFilter {
+   .projectFilter__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $white;
+      height: 80px;
+      padding: 0 20px;
+      border-radius: 2px;
+      margin-top: 40px;
+      .projectFilter__option {
+         display: flex;
+         align-items: center;
+         .projectFilter__container {
+            display: flex;
+            align-items: center;
+            input,
+            select {
+               margin-left: 10px;
+            }
+         }
+      }
+
+      .projectFilter__link {
+         a {
+            display: flex;
+            align-items: center;
+            color: $white;
+            background-color: $active-primary;
+            padding: 8px 15px;
+            border-radius: 4px;
+            width: 80px;
+         }
+      }
+   }
+}
+@media (max-width: 850px) {
+   .projectFilter {
+      .projectFilter__header {
+         padding: 0 10px;
+         height: 160px;
+         flex-direction: column;
+         justify-content: center;
+         align-items: flex-start;
+         .projectFilter__option {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            .projectFilter__container {
+               margin-top: 10px;
+               align-items: flex-start;
+               justify-content: flex-start;
+               input {
+                  margin: 0;
+               }
+            }
+         }
+         .projectFilter__link {
+            justify-content: flex-end;
+            margin-top: 10px;
+            margin-left: calc(100% - 80px);
+         }
+      }
+   }
+}

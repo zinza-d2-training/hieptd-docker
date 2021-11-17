@@ -1,0 +1,11 @@
+@import 'styles/variables';
+
+.listproject {
+   width: 98%;
+   padding: 10px;
+}
+@media (max-width: 768px) {
+   .listproject {
+      box-shadow: none;
+   }
+}
