@@ -5,6 +5,6 @@ RUN npm install react-scripts@4.0.3 -g
 COPY package*.json /app/
 RUN npm install
 COPY . ./
-EXPOSE ${FRONTEND_PORT}
+EXPOSE 3000
 
 CMD ["npm","start"]

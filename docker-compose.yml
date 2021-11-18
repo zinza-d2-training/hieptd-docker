@@ -14,9 +14,9 @@ services:
     volumes:
       - db_data:/var/lib/database
     ports:
-      - ${MYSQL_PORT}:${MYSQL_PORT}
+      - ${MYSQL_PORT}:3306
     expose:
-      - ${MYSQL_PORT}
+      - 3306
     networks:
       - app-tier
     environment:
@@ -24,7 +24,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_TCP_PORT: ${MYSQL_PORT}
+      MYSQL_TCP_PORT: 3306
 
     env_file: ./.env
 
@@ -38,13 +38,13 @@ services:
       - ./backend:/app
       - /app/node_modules
       - /app/dist
-    restart: "no"
+    restart: always
     ports:
-      - ${BACKEND_PORT}:${BACKEND_PORT}
+      - ${BACKEND_PORT}:5000
     networks:
       - app-tier
     environment:
-      - WAIT_HOSTS=mysql:3307
+      - WAIT_HOSTS=mysql:3306
       - WAIT_HOSTS_TIMEOUT=300
       - WAIT_SLEEP_INTERVAL=30
       - WAIT_HOST_CONNECT_TIMEOUT=30
@@ -60,9 +60,9 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
-    restart: "no"
+    restart: always
     ports:
-      - ${FRONTEND_PORT}:${FRONTEND_PORT}
+      - ${FRONTEND_PORT}:3000
     networks:
       - app-tier
     env_file: ./.env
